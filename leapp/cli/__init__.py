@@ -14,5 +14,6 @@ def cli(args):
 
 def main():
     os.environ['LEAPP_HOSTNAME'] = socket.getfqdn()
+    cli.command.add_sub(leapp.cli.report.report.command)
     cli.command.add_sub(leapp.cli.upgrade.upgrade.command)
     cli.command.execute('leapp version {}'.format(VERSION))
