@@ -141,7 +141,12 @@ Requires: findutils
 
 %package -n python3-%{name}
 Summary: %{summary}
-%{?system_python_abi}
+# comment out the python abi requirement. we need to discuss this one later.
+# currently, with the generated python(abi) = 3.6 it's not possible to preserve
+# the rpm on RHEL 9 system. let's talk about consequences of the removal later
+# and how to deal with possible problems
+# %%{?system_python_abi}
+%{?python_disable_dependency_generator}
 %{?python_provide:%python_provide python3-%{name}}
 
 BuildRequires:  python3-devel
