@@ -146,7 +146,8 @@ Summary: %{summary}
 # the rpm on RHEL 9 system. let's talk about consequences of the removal later
 # and how to deal with possible problems
 # %%{?system_python_abi}
-%{?python_disable_dependency_generator}
+# %%{?python_disable_dependency_generator}
+%define __provides_exclude_from ^.*$
 %{?python_provide:%python_provide python3-%{name}}
 
 BuildRequires:  python3-devel
